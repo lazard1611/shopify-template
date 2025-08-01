@@ -1,0 +1,200 @@
+@use '../variables.scss' as *;
+@use '../mixins/global-mixins.scss' as *;
+@use '../snippets/drop-menu.scss';
+
+.header {
+    width: 100%;
+    height: var(--heigth-header);
+    padding: 0 var(--gl-indent);
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+}
+
+.header__wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--main-wrapper);
+}
+
+.header__row {
+    display: flex;
+    align-items: center;
+
+    @include breakPoints($tablet) {
+        justify-content: space-between;    
+    }
+}
+
+.header__logo {
+}
+
+.header__logo_img {
+}
+
+.header__logo_text {
+}
+
+.header__nav {
+    flex: auto;
+
+    @include breakPoints($tablet, min) {
+        padding: 0 16px;       
+    }
+
+    .header--scroll_state & {
+        @include breakPoints($tablet) {
+            height: 100svh;
+        }
+    }
+
+    @include breakPoints($tablet) {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;       
+
+        width: 100vw;
+        height: calc(100svh);
+
+        background-color: $white;
+        padding: 100px var(--gl-indent) 28px;
+        transition: transform 0.5s ease;
+        pointer-events: none;
+        transform: translateX(-100%);
+    }
+
+    &::after {
+        @include breakPoints($tablet) {
+            content: '';
+            position: absolute;
+            top: var(--height-header);
+            left: 0;
+
+            display: block;
+            width: 100%;
+            height: 1px;
+
+            background-color: $white;
+        }
+    }
+
+    .body--open_menu_state & {
+        @include breakPoints($tablet) {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(0%);
+        }
+    }
+}
+
+.header__nav_list {    
+    @include breakPoints($tablet, min) {
+        display: flex;   
+        gap: 20px;
+        flex-wrap: wrap; 
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.header__nav_item {  
+    &:not(:last-child) {
+        @include breakPoints($tablet) {
+            margin-bottom: 16px;           
+        }
+    }  
+}
+
+.header__nav_link {
+}
+
+.header__aside {
+    display: flex;
+}
+
+.header__aside_list_wrap {
+    &:not(:last-child) {
+        margin-right: 16px;
+    }
+}
+
+.header__aside_list {
+}
+
+.header__aside_item {
+}
+
+.header__aside_link {
+}
+
+.header__aside_prod_count {
+}
+
+.header__menu_trigger {
+    $burgerHeight: 14px;
+    background-color: transparent;
+
+    position: relative;
+    z-index: 20;
+
+    width: 26px;
+    height: $burgerHeight;
+
+    cursor: pointer;
+
+    &::before,
+    &::after,
+    span {
+        position: absolute;
+        left: 0;
+        top: 50%;
+
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        overflow: hidden;
+
+        transition: transform 0.3s ease;
+        will-change: transform;
+
+        background-color: $black;
+    }
+
+    &::before {
+        content: '';
+        transform: translateY(calc(#{$burgerHeight} / 2 * -1));
+    }
+
+    &::after {
+        content: '';
+        transform: translateY(calc(#{$burgerHeight} / 2));
+    }
+
+    .body--open_menu_state & {
+        span {
+            transform: scale(0);
+        }
+
+        &::before {
+            transform: rotate(-45deg);
+        }
+
+        &::after {
+            transform: rotate(45deg);
+        }              
+    }
+
+    .body--open_menu_state .header--scroll_state & {
+        transform: translateY(0);
+    }
+
+    @include breakPoints($tablet, min) {
+        display: none;
+    }
+
+    @include breakPoints($tablet) {
+        display: block;
+    }
+}
+
