@@ -10,23 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/styles/sections/template-example.scss":
-/*!***************************************************!*\
-  !*** ./src/styles/sections/template-example.scss ***!
-  \***************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://project_name/./src/styles/sections/template-example.scss?");
-
-/***/ }),
-
 /***/ "./src/scripts/sections/template-example.js":
 /*!**************************************************!*\
   !*** ./src/scripts/sections/template-example.js ***!
   \**************************************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_sections_template_example_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/sections/template-example.scss */ \"./src/styles/sections/template-example.scss\");\n/* harmony import */ var _snippets_example_snippet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../snippets/example-snippet.js */ \"./src/scripts/snippets/example-snippet.js\");\n\n\ndocument.addEventListener('click', () => {\n  (0,_snippets_example_snippet_js__WEBPACK_IMPORTED_MODULE_1__.exampleSnippet)();\n});\n\n//# sourceURL=webpack://project_name/./src/scripts/sections/template-example.js?");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_sections_template_example_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../styles/sections/template-example.scss */ \"./src/styles/sections/template-example.scss\");\n/* harmony import */ var _snippets_example_snippet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../snippets/example-snippet.js */ \"./src/scripts/snippets/example-snippet.js\");\n\n\ndocument.addEventListener('click', () => {\n  (0,_snippets_example_snippet_js__WEBPACK_IMPORTED_MODULE_1__.exampleSnippet)();\n});\n\n//# sourceURL=webpack://project_name/./src/scripts/sections/template-example.js?\n}");
 
 /***/ }),
 
@@ -36,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \*************************************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   exampleSnippet: function() { return /* binding */ exampleSnippet; }\n/* harmony export */ });\nconst exampleSnippet = () => {\n  console.log('Example');\n};\n\n\n//# sourceURL=webpack://project_name/./src/scripts/snippets/example-snippet.js?");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   exampleSnippet: function() { return /* binding */ exampleSnippet; }\n/* harmony export */ });\nconst exampleSnippet = () => {\n  console.log('Example');\n};\n\n\n//# sourceURL=webpack://project_name/./src/scripts/snippets/example-snippet.js?\n}");
+
+/***/ }),
+
+/***/ "./src/styles/sections/template-example.scss":
+/*!***************************************************!*\
+  !*** ./src/styles/sections/template-example.scss ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://project_name/./src/styles/sections/template-example.scss?\n}");
 
 /***/ })
 

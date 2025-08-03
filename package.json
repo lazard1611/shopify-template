@@ -28,5 +28,8 @@
         "last 2 version",
         "not dead",
         "iOS >= 14"
-    ]
+    ],
+    "dependencies": {
+        "swiper": "^11.2.10"
+    }
 }

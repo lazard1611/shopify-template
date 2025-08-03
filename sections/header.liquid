@@ -1,19 +1,25 @@
 <link rel="stylesheet" href="{{ 'header.css' | asset_url }}">
 
-{% if section.settings.header_fix %}
-	<style>
+<style>		
+	{%- if section.settings.bg != blank -%}
 		.header {
-			z-index: 100;
-			position: fixed;
-			top: 0;
-			left: 0;
+			--header-bg: {{ section.settings.bg }}
 		}
+	{%- endif -%}
 
-		.main {
-			padding-top: var(--heigth-header);
+	{%- if section.settings.text_color != blank -%}
+		.header__row {
+			color: {{ section.settings.text_color }}
 		}
-	</style>
-{% endif %}
+	{%- endif -%}
+
+	{%- if section.settings.text_color_hover != blank -%}
+		.header {			
+			--header-text-color-hover: {{ section.settings.text_color_hover }}
+		}
+	{%- endif -%}
+	
+</style>
 
 <div class="header__wrapper">
 	<div class="header__row">
@@ -25,8 +31,8 @@
             {%- endif -%}            
         </a>
         <nav class="header__nav">            
-            <ul class="header__nav_list">                                       
-                {% for link in section.settings.link_list_id.links %} 
+            <ul class="header__nav_list">   
+                {% for link in section.settings.link_list_id.links %} 					 
 					{% if link.title != blank %}
 						<li class="header__nav_item">
 							{% if link.links.size == 0 %}
@@ -97,17 +103,40 @@
 			"type": "image_picker",
 			"id": "logo",
 			"label": "Header logo"
-		},
-		{
-			"type": "checkbox",
-			"id": "header_fix",
-			"label": "Fix header",
-			"default": true                
-		},
+		},				
 		{
 			"type": "link_list",
 			"id": "link_list_id",
 			"label": "Navigation header"
+		},
+		{
+			"type": "header",
+			"content": "Style"
+		},
+		{
+			"type": "color",
+			"id": "bg",
+			"label": "Background color"
+		},
+		{
+			"type": "color",
+			"id": "bg_scroll",
+			"label": "Background color for scroll"
+		},
+		{
+			"type": "color",
+			"id": "color_hover_scroll",
+			"label": "Hover color for scroll"
+		},
+		{
+			"type": "color",
+			"id": "text_color",
+			"label": "Text color"
+		},
+		{
+			"type": "color",
+			"id": "text_color_hover",
+			"label": "Text color hover"
 		}		
 	]
 }

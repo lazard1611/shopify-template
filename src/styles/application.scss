@@ -1,6 +1,7 @@
 /* ==================================================== IMPORTS ==================================================== */
 //application
 @use './variables.scss' as *;
+@use './mixins/global-mixins' as *;
 @use './normalize.scss';
 @use './fonts.scss';
 @use './ui/buttons.scss';
@@ -9,8 +10,9 @@
 
 /* ====================================================== ROOT ===================================================== */
 :root {
-    --gl-indent: 20px;
-    --heigth-header: 100px;
+    --gl-indent: 20px;    
+    --header-height: 80px;
+    --announcement-bar-height: 60px;
 }
 
 /* ===================================================== COMMON ==================================================== */
@@ -24,6 +26,10 @@ body {
     min-height: 100vh;
     font-family: $font_robota;
     background-color: var(--bg-body-color);
+
+    &.body--open_menu_state {
+        overflow: hidden;
+    }
 }
 
 .preloader {
@@ -45,8 +51,43 @@ body {
     }
 }
 
+.header_group__wrap {
+    // z-index: 100;
+    // position: fixed;
+    // left: 0;
+    // top: 0;
+    width: 100%;
+
+    transition: all .3s ease;
+
+    // &:has(.header--scroll_state) {
+    //     transform: translateY(calc((2px + var(--announcement-bar-height))*-1));        
+    // }
+
+    // &:has(.header--pos_state) {        
+    //     @include breakPoints($tablet, min) {
+    //         transform: translateY(calc((100% + var(--announcement-bar-height))*-1));
+    //     }
+    // }
+}
+
 main {
-    flex: 1 0 auto;
+    // flex: 1 0 auto;
+    // padding-top: calc(var(--announcement-bar-height) + var(--header-height));
+    
+    // &:has(.hero_slider:first-child),
+    // &:has(.hero:first-child) {
+    //     padding-top:  var(--announcement-bar-height);
+    // }
+    &.header--scroll_state {
+        padding-top: var(--header-height);
+    }
+}
+
+.page_width {
+    width: 100%;
+    margin: 0 auto;
+    max-width: var(--main-wrapper);
 }
 
 footer {

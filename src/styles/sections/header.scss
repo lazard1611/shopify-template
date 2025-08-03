@@ -4,11 +4,23 @@
 
 .header {
     width: 100%;
-    height: var(--heigth-header);
-    padding: 0 var(--gl-indent);
-    background-color: blanchedalmond;
+    height: var(--header-height);
+    background-color: var(--header-bg);
+    padding: 0 var(--gl-indent);    
     display: flex;
     align-items: center;
+    transition: transform 0.3s ease;
+
+    &.header--scroll_state {
+        position: fixed;
+        // top: calc(var(--header-height)* -1);
+        top: 0;
+        z-index: 100;
+    }
+
+    &.header--pos_state {       
+        transform: translateY(-100%);
+    }
 }
 
 .header__wrapper {
@@ -18,11 +30,16 @@
 }
 
 .header__row {
-    display: flex;
+    display: grid;    
+    gap: 16px;
     align-items: center;
 
+    @include breakPoints($tablet, min) {
+        grid-template-columns: 1fr auto 1fr;           
+    }    
+
     @include breakPoints($tablet) {
-        justify-content: space-between;    
+        grid-template-columns: 1fr auto;   
     }
 }
 
@@ -35,13 +52,7 @@
 .header__logo_text {
 }
 
-.header__nav {
-    flex: auto;
-
-    @include breakPoints($tablet, min) {
-        padding: 0 16px;       
-    }
-
+.header__nav {      
     .header--scroll_state & {
         @include breakPoints($tablet) {
             height: 100svh;
@@ -49,7 +60,7 @@
     }
 
     @include breakPoints($tablet) {
-        z-index: 1;
+        z-index: 3;
         position: absolute;
         top: 0;
         left: 0;       
@@ -106,16 +117,38 @@
     }  
 }
 
+
+.header__logo_text,
+.header__aside_link,
 .header__nav_link {
+    transition: color 0.3s ease;
+
+    &:hover {
+        @include breakPoints($tablet, min) {
+            color: var(--header-text-color-hover);           
+        }
+    }
+    
+}
+
+.header__aside_link:hover + .header__aside_prod_count {
+    transition: color 0.3s ease;
+
+    @include breakPoints($tablet, min) {
+        color: var(--header-text-color-hover);           
+    }
 }
 
 .header__aside {
     display: flex;
+    justify-content: flex-end;
 }
 
 .header__aside_list_wrap {
     &:not(:last-child) {
-        margin-right: 16px;
+        @include breakPoints($tablet) {
+            margin-right: 16px;          
+        }        
     }
 }
 
@@ -123,12 +156,16 @@
 }
 
 .header__aside_item {
-}
-
-.header__aside_link {
+    position: relative;
 }
 
 .header__aside_prod_count {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background-color: var(--header-bg);
+    display: block;
+    
 }
 
 .header__menu_trigger {

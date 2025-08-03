@@ -1,11 +1,11 @@
 ### How to install project
-1) ``` git clone https://github.com/opklopper-team/empty-project.git . ```  
+1) ``` git clone https://github.com/lazard1611/shopify-template.git . ```  
 2) ``` git checkout -b yourBranchName ```  
 3) ``` npm install ``` or ``` npm i ```
 
 ### Project terminal commands
 Use shopify the dev command to run shopify dev server (without live reload)
-``` shopify theme dev --live-reload=off -s opklopperteststore1.myshopify.com ```
+``` shopify theme dev --live-reload=off -s lazarev-test-store.myshopify.com ```
 
 Start gulp and webpack watcher (for building sass files to css and js files to minimized version):  
 To build all css and js files in DEV mode use this command:   
@@ -20,7 +20,7 @@ To watch for all changes in css and js files in BUILD mode use this command:
 ### How we run the project for develop
 We use 3 console windows (for shopify cli, npm watcher and github merges).  
 These two commands is enought for comfortable work:  
-1) ``` shopify theme dev --live-reload=off -s opklopperteststore1.myshopify.com ``` - for watch scss and js files in DEV mode
+1) ``` shopify theme dev --live-reload=off -s lazarev-test-store.myshopify.com ``` - for watch scss and js files in DEV mode
 2) ``` npm run watch ``` - for watch scss and js files in DEV mode
 2) ``` npm run watchBUILD ``` - for watch scss and js files in BUILD mode
 
